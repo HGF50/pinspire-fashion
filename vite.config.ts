@@ -15,10 +15,10 @@ export default defineConfig({
       "@": path.resolve(__dirname, "src"),
     },
   },
-  base: "./", // Compatible avec tous les hébergeurs
+  base: "/pinspire-fashion/",
   build: {
     outDir: "dist",
-    sourcemap: false, // Réduit la taille
+    sourcemap: false,
     rollupOptions: {
       output: {
         manualChunks: undefined,
