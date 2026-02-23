@@ -37,21 +37,21 @@
             // Configuration Cloudinary
             const cloudinaryConfig = {
                 cloudName: 'dmrytexqw', // Votre cloud name
-                uploadPreset: 'pinspire' // Votre preset unsigned créé
+                uploadPreset: 'pinspire' // Votre preset unsigned avec dossier pinspire-fashion
             };
             
-            // Fonction d'upload vers Cloudinary
-            const uploadImageToCloudinary = (file) => {
+            // Fonction d'upload simplifiée vers Cloudinary
+            const uploadImageToCloudinary = () => {
                 return new Promise((resolve, reject) => {
                     setIsUploading(true);
                     
                     const widget = cloudinary.createUploadWidget({
-                        cloudName: cloudinaryConfig.cloudName,
-                        uploadPreset: cloudinaryConfig.uploadPreset,
-                        sources: ['local', 'camera'],
+                        cloudName: 'dmrytexqw',
+                        uploadPreset: 'pinspire',
+                        folder: 'pinspire-fashion',
                         multiple: false,
-                        maxFileSize: 5000000, // 5MB
-                        folder: 'pinspire-fashion'
+                        maxFileSize: 5000000,
+                        sources: ['local', 'camera']
                     }, (error, result) => {
                         setIsUploading(false);
                         
