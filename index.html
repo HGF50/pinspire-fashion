@@ -156,8 +156,8 @@
                 try {
                     const pinData = {
                         title: newPin.title,
-                        description: newPin.description,
-                        image_url: newPin.imageUrl, // URL Cloudinary persistante
+                        description: newPin.description || '',
+                        image_url: newPin.imageUrl,
                         author_name: 'Vous',
                         author_avatar: 'https://i.pravatar.cc/150?img=0',
                         board: newPin.board,
@@ -166,13 +166,20 @@
                         height: Math.floor(Math.random() * 200) + 300
                     };
                     
+                    console.log('Données à insérer:', pinData);
+                    
                     // Insérer dans Supabase
                     const { data, error } = await supabase
                         .from('pins')
                         .insert([pinData])
                         .select();
                     
-                    if (error) throw error;
+                    console.log('Résultat Supabase:', { data, error });
+                    
+                    if (error) {
+                        console.error('Erreur détaillée:', error);
+                        throw error;
+                    }
                     
                     // Mettre à jour l'état local
                     setPins(prev => [data[0], ...prev]);
@@ -188,8 +195,8 @@
                     setShowModal(false);
                     
                 } catch (err) {
-                    console.error('Erreur création pin:', err);
-                    setError('Erreur lors de la création du pin');
+                    console.error('Erreur création pin complète:', err);
+                    setError('Erreur: ' + (err.message || 'Erreur lors de la création du pin'));
                 }
             };
             
