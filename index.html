@@ -37,7 +37,7 @@
             // Configuration Cloudinary
             const cloudinaryConfig = {
                 cloudName: 'dmrytexqw', // Votre cloud name
-                uploadPreset: 'upload' // Votre preset unsigned simple
+                uploadPreset: 'preset1' // Preset par défaut Cloudinary
             };
             
             // Fonction d'upload simplifiée vers Cloudinary
@@ -47,7 +47,7 @@
                     
                     const widget = cloudinary.createUploadWidget({
                         cloudName: 'dmrytexqw',
-                        uploadPreset: 'upload',
+                        uploadPreset: 'preset1',
                         folder: 'pinspire-fashion',
                         multiple: false,
                         maxFileSize: 5000000,
