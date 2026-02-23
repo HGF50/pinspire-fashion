@@ -48,16 +48,29 @@
             const loadPins = async () => {
                 try {
                     setLoading(true);
+                    console.log('Tentative de chargement...');
+                    
                     const { data, error } = await supabase
                         .from('pins')
-                        .select('*')
-                        .order('created_at', { ascending: false });
+                        .select('*');
                     
-                    if (error) throw error;
+                    console.log('Données reçues:', { data, error });
+                    
+                    if (error) {
+                        console.error('Erreur Supabase:', error);
+                        // Si la table n'existe pas, on crée une structure de base
+                        if (error.code === 'PGRST116') {
+                            console.log('La table n existe pas, utilisation du mode dégradé');
+                            setPins([]);
+                            return;
+                        }
+                        throw error;
+                    }
+                    
                     setPins(data || []);
                 } catch (err) {
-                    console.error('Erreur chargement:', err);
-                    setError('Erreur lors du chargement des pins');
+                    console.error('Erreur chargement complète:', err);
+                    setError('Erreur: ' + (err.message || 'Problème de connexion'));
                 } finally {
                     setLoading(false);
                 }
@@ -154,9 +167,11 @@
                 }
                 
                 try {
+                    console.log('Début création pin...');
+                    
                     const pinData = {
                         title: newPin.title,
-                        description: newPin.description || '',
+                        description: newPin.description || null,
                         image_url: newPin.imageUrl,
                         author_name: 'Vous',
                         author_avatar: 'https://i.pravatar.cc/150?img=0',
@@ -168,21 +183,20 @@
                     
                     console.log('Données à insérer:', pinData);
                     
-                    // Insérer dans Supabase
+                    // Test simple d'abord
                     const { data, error } = await supabase
                         .from('pins')
-                        .insert([pinData])
-                        .select();
+                        .insert([pinData]);
                     
-                    console.log('Résultat Supabase:', { data, error });
+                    console.log('Insertion résultat:', { data, error });
                     
                     if (error) {
-                        console.error('Erreur détaillée:', error);
-                        throw error;
+                        console.error('Erreur insertion:', error);
+                        throw new Error(error.message);
                     }
                     
-                    // Mettre à jour l'état local
-                    setPins(prev => [data[0], ...prev]);
+                    // Recharger les données depuis Supabase
+                    await loadPins();
                     
                     // Réinitialiser le formulaire
                     setNewPin({
@@ -196,7 +210,7 @@
                     
                 } catch (err) {
                     console.error('Erreur création pin complète:', err);
-                    setError('Erreur: ' + (err.message || 'Erreur lors de la création du pin'));
+                    setError('Erreur: ' + err.message);
                 }
             };
             
