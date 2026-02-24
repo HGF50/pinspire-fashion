@@ -39,7 +39,37 @@
             const [error, setError] = useState('');
             const [isUploading, setIsUploading] = useState(false);
             
-            // Charger les pins depuis Supabase au démarrage
+            // Fonction pour supprimer un pin
+            const deletePin = async (pinId) => {
+                if (!confirm('Êtes-vous sûr de vouloir supprimer ce vêtement ?')) {
+                    return;
+                }
+                
+                try {
+                    console.log('Suppression du pin:', pinId);
+                    
+                    const { error } = await supabase
+                        .from('pins')
+                        .delete()
+                        .eq('id', pinId);
+                    
+                    if (error) {
+                        console.error('Erreur suppression:', error);
+                        throw error;
+                    }
+                    
+                    // Mettre à jour l'état local
+                    setPins(prev => prev.filter(pin => pin.id !== pinId));
+                    
+                    console.log('Pin supprimé avec succès');
+                    
+                } catch (err) {
+                    console.error('Erreur suppression complète:', err);
+                    setError('Erreur lors de la suppression');
+                }
+            };
+            
+            // Fonction pour charger les pins depuis Supabase au démarrage
             useEffect(() => {
                 loadPins();
             }, []);
@@ -340,8 +370,17 @@
                         ) : (
                             <div className="columns-2 md:columns-3 lg:columns-4 gap-4">
                                 {filteredPins.map(pin => (
-                                    <div key={pin.id} className="break-inside-avoid mb-4">
+                                    <div key={pin.id} className="break-inside-avoid mb-4 group relative">
                                         <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                                            {/* Bouton de suppression */}
+                                            <button
+                                                onClick={() => deletePin(pin.id)}
+                                                className="absolute top-2 right-2 bg-red-600 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity z-10 hover:bg-red-700"
+                                                title="Supprimer ce vêtement"
+                                            >
+                                                <i className="fas fa-trash text-xs"></i>
+                                            </button>
+                                            
                                             <img 
                                                 src={pin.image_url} 
                                                 alt={pin.title} 
