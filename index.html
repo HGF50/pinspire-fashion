@@ -393,10 +393,10 @@
                                             <img 
                                                 src={pin.image_url} 
                                                 alt={pin.title} 
-                                                className="w-full object-cover hover:scale-105 transition-transform duration-300"
+                                                className="w-full hover:scale-105 transition-transform duration-300"
                                                 style={{ 
-                                                    height: Math.min(pin.height, 600) + 'px',
-                                                    minHeight: '300px'
+                                                    minHeight: '300px',
+                                                    objectFit: 'contain'
                                                 }}
                                             />
                                             <div className="p-3">
