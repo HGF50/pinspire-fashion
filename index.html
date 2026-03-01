@@ -167,47 +167,63 @@
             const categories = [
                 { id: 'all', name: 'Tout', icon: '🏠' },
                 // Streetwear & Urbain
-                { id: 'streetwear', name: 'Streetwear', icon: '👟' },
-                { id: 'y2k', name: 'Y2K', icon: '�' },
-                { id: 'techwear', name: 'Techwear', icon: '�' },
-                { id: 'skate', name: 'Skate', icon: '�' },
-                { id: 'hip-hop', name: 'Hip-Hop', icon: '🎤' },
+                { id: 'streetwear-men', name: 'Streetwear Homme', icon: '👟' },
+                { id: 'streetwear-women', name: 'Streetwear Femme', icon: '👟' },
+                { id: 'y2k-men', name: 'Y2K Homme', icon: '💿' },
+                { id: 'y2k-women', name: 'Y2K Femme', icon: '💿' },
+                { id: 'techwear-men', name: 'Techwear Homme', icon: '🔧' },
+                { id: 'techwear-women', name: 'Techwear Femme', icon: '🔧' },
+                { id: 'skate-men', name: 'Skate Homme', icon: '🛹' },
+                { id: 'skate-women', name: 'Skate Femme', icon: '🛹' },
+                { id: 'hip-hop-men', name: 'Hip-Hop Homme', icon: '🎤' },
+                { id: 'hip-hop-women', name: 'Hip-Hop Femme', icon: '🎤' },
                 
                 // Vintage & Rétro
-                { id: 'vintage-90s', name: 'Vintage 90s', icon: '�' },
-                { id: 'vintage-80s', name: 'Vintage 80s', icon: '📺' },
-                { id: 'retro-sport', name: 'Retro Sport', icon: '🏀' },
-                { id: 'grunge', name: 'Grunge', icon: '🎸' },
-                { id: 'disco', name: 'Disco', icon: '🕺' },
+                { id: 'vintage-90s-men', name: 'Vintage 90s Homme', icon: '📼' },
+                { id: 'vintage-90s-women', name: 'Vintage 90s Femme', icon: '📼' },
+                { id: 'vintage-80s-men', name: 'Vintage 80s Homme', icon: '📺' },
+                { id: 'vintage-80s-women', name: 'Vintage 80s Femme', icon: '📺' },
+                { id: 'retro-sport-men', name: 'Retro Sport Homme', icon: '🏀' },
+                { id: 'retro-sport-women', name: 'Retro Sport Femme', icon: '🏀' },
+                { id: 'grunge-men', name: 'Grunge Homme', icon: '🎸' },
+                { id: 'grunge-women', name: 'Grunge Femme', icon: '🎸' },
+                { id: 'disco-men', name: 'Disco Homme', icon: '🕺' },
+                { id: 'disco-women', name: 'Disco Femme', icon: '🕺' },
                 
                 // Esthétiques Modernes
-                { id: 'minimalist', name: 'Minimalist', icon: '⚪' },
-                { id: 'cottagecore', name: 'Cottagecore', icon: '🌻' },
+                { id: 'minimalist-men', name: 'Minimalist Homme', icon: '⚪' },
+                { id: 'minimalist-women', name: 'Minimalist Femme', icon: '⚪' },
+                { id: 'cottagecore-men', name: 'Cottagecore Homme', icon: '🌻' },
+                { id: 'cottagecore-women', name: 'Cottagecore Femme', icon: '🌻' },
                 { id: 'soft-girl', name: 'Soft Girl', icon: '🌸' },
                 
                 // Classiques Intemporels
                 { id: 'classic-men', name: 'Classique Homme', icon: '👔' },
                 { id: 'classic-women', name: 'Classique Femme', icon: '👗' },
-                { id: 'business', name: 'Business', icon: '💼' },
-                { id: 'casual', name: 'Casual', icon: '👕' },
-                
-                // Créatifs & Alternatifs
-                { id: 'goth', name: 'Goth', icon: '🦇' },
-                { id: 'punk', name: 'Punk', icon: '🤘' },
-                { id: 'bohemian', name: 'Bohème', icon: '🌿' },
-                { id: 'kawaii', name: 'Kawaii', icon: '🎀' },
+                { id: 'business-men', name: 'Business Homme', icon: '💼' },
+                { id: 'business-women', name: 'Business Femme', icon: '💼' },
+                { id: 'casual-men', name: 'Casual Homme', icon: '👕' },
+                { id: 'casual-women', name: 'Casual Femme', icon: '👕' },
                 
                 // Sport & Athleisure
-                { id: 'athleisure', name: 'Athleisure', icon: '🏃‍♀️' },
-                { id: 'gym', name: 'Gym', icon: '🏋️‍♀️' },
-                { id: 'yoga', name: 'Yoga', icon: '🧘‍♀️' },
-                { id: 'running', name: 'Running', icon: '🏃‍♂️' },
+                { id: 'athleisure-men', name: 'Athleisure Homme', icon: '🏃‍♀️' },
+                { id: 'athleisure-women', name: 'Athleisure Femme', icon: '🏃‍♀️' },
+                { id: 'gym-men', name: 'Gym Homme', icon: '💪' },
+                { id: 'gym-women', name: 'Gym Femme', icon: '💪' },
+                { id: 'yoga-men', name: 'Yoga Homme', icon: '🧘‍♀️' },
+                { id: 'yoga-women', name: 'Yoga Femme', icon: '🧘‍♀️' },
+                { id: 'running-men', name: 'Running Homme', icon: '🏃‍♂️' },
+                { id: 'running-women', name: 'Running Femme', icon: '🏃‍♂️' },
                 
                 // Occasions Spéciales
-                { id: 'festival', name: 'Festival', icon: '🎪' },
-                { id: 'party', name: 'Soirée', icon: '🎉' },
-                { id: 'beach', name: 'Plage', icon: '🏖️' },
-                { id: 'formal', name: 'Formal', icon: '🥂' }
+                { id: 'festival-men', name: 'Festival Homme', icon: '🎪' },
+                { id: 'festival-women', name: 'Festival Femme', icon: '🎪' },
+                { id: 'party-men', name: 'Soirée Homme', icon: '🎉' },
+                { id: 'party-women', name: 'Soirée Femme', icon: '🎉' },
+                { id: 'beach-men', name: 'Plage Homme', icon: '🏖️' },
+                { id: 'beach-women', name: 'Plage Femme', icon: '🏖️' },
+                { id: 'formal-men', name: 'Formal Homme', icon: '🥂' },
+                { id: 'formal-women', name: 'Formal Femme', icon: '🥂' }
             ];
             
             const handleCreatePin = async () => {
@@ -525,46 +541,68 @@
                                     <option value="">Sélectionner une catégorie</option>
                                     
                                     <optgroup label="🔥 Streetwear & Urbain">
-                                        <option value="streetwear">Streetwear</option>
-                                        <option value="y2k">Y2K</option>
-                                        <option value="techwear">Techwear</option>
-                                        <option value="skate">Skate</option>
-                                        <option value="hip-hop">Hip-Hop</option>
+                                        <option value="streetwear-men">Streetwear Homme</option>
+                                        <option value="streetwear-women">Streetwear Femme</option>
+                                        <option value="y2k-men">Y2K Homme</option>
+                                        <option value="y2k-women">Y2K Femme</option>
+                                        <option value="techwear-men">Techwear Homme</option>
+                                        <option value="techwear-women">Techwear Femme</option>
+                                        <option value="skate-men">Skate Homme</option>
+                                        <option value="skate-women">Skate Femme</option>
+                                        <option value="hip-hop-men">Hip-Hop Homme</option>
+                                        <option value="hip-hop-women">Hip-Hop Femme</option>
                                     </optgroup>
                                     
                                     <optgroup label="📼 Vintage & Rétro">
-                                        <option value="vintage-90s">Vintage 90s</option>
-                                        <option value="vintage-80s">Vintage 80s</option>
-                                        <option value="retro-sport">Retro Sport</option>
-                                        <option value="grunge">Grunge</option>
-                                        <option value="disco">Disco</option>
+                                        <option value="vintage-90s-men">Vintage 90s Homme</option>
+                                        <option value="vintage-90s-women">Vintage 90s Femme</option>
+                                        <option value="vintage-80s-men">Vintage 80s Homme</option>
+                                        <option value="vintage-80s-women">Vintage 80s Femme</option>
+                                        <option value="retro-sport-men">Retro Sport Homme</option>
+                                        <option value="retro-sport-women">Retro Sport Femme</option>
+                                        <option value="grunge-men">Grunge Homme</option>
+                                        <option value="grunge-women">Grunge Femme</option>
+                                        <option value="disco-men">Disco Homme</option>
+                                        <option value="disco-women">Disco Femme</option>
                                     </optgroup>
                                     
                                     <optgroup label="✨ Esthétiques Modernes">
-                                        <option value="minimalist">Minimalist</option>
-                                        <option value="cottagecore">Cottagecore</option>
+                                        <option value="minimalist-men">Minimalist Homme</option>
+                                        <option value="minimalist-women">Minimalist Femme</option>
+                                        <option value="cottagecore-men">Cottagecore Homme</option>
+                                        <option value="cottagecore-women">Cottagecore Femme</option>
                                         <option value="soft-girl">Soft Girl</option>
                                     </optgroup>
                                     
                                     <optgroup label="👔 Classiques Intemporels">
                                         <option value="classic-men">Classique Homme</option>
                                         <option value="classic-women">Classique Femme</option>
-                                        <option value="business">Business</option>
-                                        <option value="casual">Casual</option>
+                                        <option value="business-men">Business Homme</option>
+                                        <option value="business-women">Business Femme</option>
+                                        <option value="casual-men">Casual Homme</option>
+                                        <option value="casual-women">Casual Femme</option>
                                     </optgroup>
                                     
-                                    <optgroup label=" Sport & Athleisure">
-                                        <option value="athleisure">Athleisure</option>
-                                        <option value="gym">Gym</option>
-                                        <option value="yoga">Yoga</option>
-                                        <option value="running">Running</option>
+                                    <optgroup label="🏃 Sport & Athleisure">
+                                        <option value="athleisure-men">Athleisure Homme</option>
+                                        <option value="athleisure-women">Athleisure Femme</option>
+                                        <option value="gym-men">Gym Homme</option>
+                                        <option value="gym-women">Gym Femme</option>
+                                        <option value="yoga-men">Yoga Homme</option>
+                                        <option value="yoga-women">Yoga Femme</option>
+                                        <option value="running-men">Running Homme</option>
+                                        <option value="running-women">Running Femme</option>
                                     </optgroup>
                                     
                                     <optgroup label="🎉 Occasions Spéciales">
-                                        <option value="festival">Festival</option>
-                                        <option value="party">Soirée</option>
-                                        <option value="beach">Plage</option>
-                                        <option value="formal">Formal</option>
+                                        <option value="festival-men">Festival Homme</option>
+                                        <option value="festival-women">Festival Femme</option>
+                                        <option value="party-men">Soirée Homme</option>
+                                        <option value="party-women">Soirée Femme</option>
+                                        <option value="beach-men">Plage Homme</option>
+                                        <option value="beach-women">Plage Femme</option>
+                                        <option value="formal-men">Formal Homme</option>
+                                        <option value="formal-women">Formal Femme</option>
                                     </optgroup>
                                 </select>
                                 <textarea 
